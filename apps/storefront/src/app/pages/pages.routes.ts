@@ -2,20 +2,25 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Route } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { SampleComponent } from './sample/sample.component';
+import { officerGuard } from '../guards/officer.guard';
 
 export const pagesRoutes: Route[] = [
     {
-        path: '', component: PagesComponent,
+        path: '',
+        component: PagesComponent,
         children: [
-            { path: 'dashboard', component: DashboardComponent },
+            {
+                path: 'dashboard',
+                component: DashboardComponent,
+                canActivate: [officerGuard],
+            },
             { path: 'sample', component: SampleComponent },
             {
                 path: 'products',
                 loadChildren: () =>
-                    import('product-app/Routes').then((m) => m.remoteRoutes)
+                    import('product-app/Routes').then((m) => m.remoteRoutes),
             },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-        ]
-    }
+        ],
+    },
 ];
-
