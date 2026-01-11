@@ -58,6 +58,17 @@
             "options": {
                 "targetName": "e2e"
             }
+        },
+        {
+            "plugin": "@nx/react/router-plugin",
+            "options": {
+                "buildTargetName": "build",
+                "devTargetName": "dev",
+                "startTargetName": "start",
+                "watchDepsTargetName": "watch-deps",
+                "buildDepsTargetName": "build-deps",
+                "typecheckTargetName": "typecheck"
+            }
         }
     ],
     "nxCloudAccessToken": "YzE5OWI5MTEtODU2Ni00Y2U4LWI0NWItMjhkMDEyMjFjMmVkfHJlYWQtd3JpdGU=",

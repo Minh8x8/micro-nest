@@ -29,6 +29,9 @@
             "product-app/Routes": [
                 "apps/product-app/src/app/remote-entry/entry.routes.ts"
             ],
+            "profile-app/ProfilePageWrapper": [
+                "apps/profile-app/src/app/pages/profile/profile-wrapper.component.ts"
+            ],
             "shared-ui": ["libs/shared/ui/src/index.ts"],
             "shared/SharedButtonComponent": [
                 "apps/shared/src/app/components/button.component.ts"

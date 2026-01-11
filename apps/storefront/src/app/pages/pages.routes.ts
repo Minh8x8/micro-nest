@@ -20,6 +20,13 @@ export const pagesRoutes: Route[] = [
                 loadChildren: () =>
                     import('product-app/Routes').then((m) => m.remoteRoutes),
             },
+            {
+                path: 'profile',
+                loadComponent: () =>
+                    import('profile-app/ProfilePageWrapper').then(
+                        (m) => m.ProfileWrapperComponent
+                    ),
+            },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
     },
