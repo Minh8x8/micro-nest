@@ -12,7 +12,6 @@ export const pagesRoutes: Route[] = [
             {
                 path: 'dashboard',
                 component: DashboardComponent,
-                canActivate: [officerGuard],
             },
             { path: 'sample', component: SampleComponent },
             {
@@ -29,5 +28,6 @@ export const pagesRoutes: Route[] = [
             },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],
+        canActivate: [officerGuard],
     },
 ];

@@ -32,6 +32,9 @@
             "profile-app/ProfilePageWrapper": [
                 "apps/profile-app/src/app/pages/profile/profile-wrapper.component.ts"
             ],
+            "profile-app/ProfileButton": [
+                "apps/profile-app/src/app/components/profile/profile-button.component.tsx"
+            ],
             "shared-ui": ["libs/shared/ui/src/index.ts"],
             "shared/SharedButtonComponent": [
                 "apps/shared/src/app/components/button.component.ts"
