@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 import { PagesComponent } from './pages.component';
 import { SampleComponent } from './sample/sample.component';
 import { officerGuard } from '../guards/officer.guard';
+import { ProfilePageComponent } from './profile/profile-page.component';
 
 export const pagesRoutes: Route[] = [
     {
@@ -21,10 +22,7 @@ export const pagesRoutes: Route[] = [
             },
             {
                 path: 'profile',
-                loadComponent: () =>
-                    import('profile-app/ProfilePageWrapper').then(
-                        (m) => m.ProfileWrapperComponent
-                    ),
+                component: ProfilePageComponent,
             },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
         ],

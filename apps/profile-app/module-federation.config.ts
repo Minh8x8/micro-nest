@@ -5,7 +5,10 @@ const config: ModuleFederationConfig = {
     name: 'profile-app',
     exposes: {
         './Module': './src/remote-entry.ts',
-        './ProfilePage': './src/app/pages/profile/profile-page',
+        './ProfileButtonComponent':
+            './src/app/components/profile/profile-button.component.tsx',
+        './ProfilePageComponent':
+            './src/app/components/profile/profile.component.tsx',
     },
 };
 
