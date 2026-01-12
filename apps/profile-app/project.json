@@ -1,0 +1,67 @@
+{
+    "name": "profile-app",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/profile-app/src",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+        "build": {
+            "executor": "@nx/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "compiler": "babel",
+                "outputPath": "dist/apps/profile-app",
+                "index": "apps/profile-app/src/index.html",
+                "baseHref": "/",
+                "main": "apps/profile-app/src/main.tsx",
+                "tsConfig": "apps/profile-app/tsconfig.app.json",
+                "assets": [
+                    "apps/profile-app/src/favicon.ico",
+                    "apps/profile-app/src/assets"
+                ],
+                "styles": ["apps/profile-app/src/styles.scss"],
+                "webpackConfig": "apps/profile-app/webpack.config.ts"
+            },
+            "configurations": {
+                "development": {
+                    "extractLicenses": false,
+                    "optimization": false,
+                    "sourceMap": true,
+                    "vendorChunk": true
+                },
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/profile-app/src/environments/environment.ts",
+                            "with": "apps/profile-app/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@nx/react:module-federation-dev-server",
+            "options": {
+                "buildTarget": "profile-app:build:development",
+                "port": 4206,
+                "publicHost": "http://localhost:4206"
+            },
+            "configurations": {
+                "production": {
+                    "buildTarget": "profile-app:build:production"
+                },
+                "development": {
+                    "buildTarget": "profile-app:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        }
+    }
+}
